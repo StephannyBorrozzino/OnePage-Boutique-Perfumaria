@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Boutique Perfumaria</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+        /* Estilos bem básicos e responsivos */
+        
+         :root {
+            --max: 900px;
+            --gap: 16px;
+            --corBas: black;
+            --cor1: #0cc0df;
+            --cor2: #ffde59;
+            --cor2Trans: #ffde5971;
+            --cor3: #ddc0a8;
+            --cor4: #c1e0e6;
+            --cor5: #9fb8bd;
+            --background: rgb(245, 245, 245);
+            --fontDes: "Leckerli One", sans-serif;
+        }
+        
+         :root.dark {
+            --max: 900px;
+            --gap: 16px;
+            --corBas: rgb(250, 250, 250);
+            --cor1: #1276c8;
+            --cor2: #719f34;
+            --cor2Trans: #719f348c;
+            --cor3: #ca8f5e;
+            --cor4: #95abaf;
+            --cor5: #667679;
+            --background: rgb(31, 31, 31);
+            --fontDes: "Leckerli One", sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 1.2em;
+            background-color: var(--background);
+            transition-duration: 0.5s;
+        }
+        
+        header {
+            background-image: linear-gradient(to right, var(--cor1), var(--cor2));
+            color: var(--corBas);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            font-family: var(--fontDes);
+        }
+        
+        header p {
+            font-size: 1.3em;
+        }
+        
+        nav {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+        
+        nav a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.3em;
+            padding: 6px 10px;
+            transition-duration: 0.5s;
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px black;
+        }
+        
+        nav a:hover {
+            background-color: var(--cor3);
+        }
+        
+        .hero {
+            max-width: var(--max);
+            margin: 16px auto;
+            padding: 0 var(--gap);
+            text-align: center;
+        }
+        
+        .hero a {
+            font-size: 1.2em;
+            color: var(--corBas);
+        }
+        
+        main {
+            max-width: var(--max);
+            margin: auto;
+            padding: 20px var(--gap);
+        }
+        
+        main h2 {
+            background-image: linear-gradient(to right, var(--cor1), var(--cor2Trans));
+            max-width: 30vw;
+            border-radius: 20px;
+            padding: 6px;
+            padding-left: 10px;
+        }
+        
+        section {
+            margin: 18px 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            background-color: var(--cor4);
+        }
+        /* section */
+        
+        #sobre img {
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            border: 2px solid var(--corBas);
+            display: block;
+            margin: auto;
+        }
+        
+        #sobre p {
+            margin: 10px;
+            max-width: 700px;
+        }
+        
+        .grid {
+            display: grid;
+            gap: var(--gap);
+        }
+        
+        @media(min-width:720px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width: 900px) {
+            .row {
+                display: flex;
+                flex-direction: column !important;
+            }
+            main h2 {
+                max-width: 40vw;
+            }
+            .card img {
+                width: 100%;
+            }
+        }
+        
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 12px;
+            background-color: var(--cor5);
+        }
+        
+        .card img {
+            max-width: 380px;
+            border-radius: 20px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            border: 2px solid var(--corBas);
+        }
+        
+        label {
+            display: block;
+            margin: .5rem 0 .25rem;
+        }
+        
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+        }
+        
+        button {
+            background: var(--cor3);
+            color: black;
+            cursor: pointer;
+            border: none;
+            margin-top: 8px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        
+        input#BtnModoTela {
+            width: 50px;
+            padding: 2px;
+            border: none;
+            display: block;
+            margin-left: 0;
+            margin-bottom: 0px;
+        }
+        
+        .row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        
+        html {
+            /* faz a rolagem suave dos links  */
+            scroll-behavior: smooth;
+        }
+        
+         :focus {
+            outline: 2px solid var(--cor2);
+            outline-offset: 2px
+        }
+        
+        footer {
+            text-align: center;
+            color: var(--corBas);
+            padding: 24px 16px;
+            font-size: 1.1em;
+        }
+        
+        footer a {
+            color: var(--corBas);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="topo">
+        <input type="image" src="img/lightMode.png" alt="" id="BtnModoTela">
+        <!-- header: topo do site -->
+        <h1>Boutique Perfumaria</h1>
+        <!-- H1 único: descreve o site/página -->
+        <nav aria-label="Navegação principal">
+            <!-- nav: links que rolam até as seções -->
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Produtos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="hero">
+            <!-- “Hero”: destaque inicial com um botão que leva ao conteúdo -->
+            <h2>Bem-vindo(a)!</h2>
+            <p>Cada essência uma história e uma esperança.</p>
+            <a href="#projetos">Conheça nossos produtos</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- main: conteúdo principal da página -->
+
+        <section id="sobre" aria-labelledby="t-sobre">
+            <h2 id="t-sobre">Sobre</h2>
+            <div class="row">
+                <div>
+                    <p>Seja bem-vindo à Boutique Perfumaria, onde fragrâncias se tornam experiências e cada essência conta uma história única.</p>
+                    <p>Fundada com a paixão pela arte da perfumaria, a Boutique nasceu para oferecer sofisticação, autenticidade e exclusividade em cada frasco. Aqui, unimos tradição e inovação para proporcionar aos nossos clientes uma seleção refinada de
+                        perfumes nacionais e importados, cuidadosamente escolhidos para atender aos mais diversos estilos, ocasiões e personalidades.</p>
+                </div>
+                <img src="img/perfumes.jpg" alt="Foto de uma bandeja de prata com perfumes e um ramo de flores">
+                <!-- alt descreve a imagem -->
+            </div>
+        </section>
+
+        <section id="projetos" aria-labelledby="t-projetos">
+            <h2 id="t-projetos">Produtos</h2>
+            <div class="grid">
+                <article class="card">
+                    <img src="img/Perf_Kaiak.jpg" alt="Foto do frasco do Kaiak Oceano Masculino">
+                    <h3>Kaiak Oceano - Masculino</h3>
+                    <p>R$ 146,20</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_MyWay.png" alt="Foto do frasco do My Way Feminino">
+                    <h3>My Way - Feminino</h3>
+                    <p>R$ 172,00</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_LaNuitTresor.png" alt="Foto do frasco do La Nuit Trésor Feminino">
+                    <h3>La Nuit Trésor - Feminino</h3>
+                    <p>R$ 149,99</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_DiorSauvage.png" alt="Foto do frasco do Dior Sauvage Masculino">
+                    <h3>Dior Sauvage - Masculino</h3>
+                    <p>R$ 145,00</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_LilyGardenia.png" alt="Foto do frasco do Lily Gardénia Feminino">
+                    <h3>Lily Gardénia - Feminino</h3>
+                    <p>R$ 160,00</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_ElixirLaRive.png" alt="Foto do frasco do Elixir La Rive Feminino">
+                    <h3>Elixir La Rive - Feminino</h3>
+                    <p>R$ 152,50</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_RabanneOlympea.png" alt="Foto do frasco do Rabanne Olympéa Feminino">
+                    <h3>Rabanne Olympéa - Feminino</h3>
+                    <p>R$ 175,00</p>
+                </article>
+                <article class="card">
+                    <img src="img/Perf_EssencialAto.jpg" alt="Foto do frasco do Essencial Ato Masculino">
+                    <h3>Essencial Ato - Masculino</h3>
+                    <p>R$ 139,99</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato" aria-labelledby="t-contato">
+            <h2 id="t-contato">Contato</h2>
+            <form>
+                <!-- label + for / input + id = acessível -->
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 — Stephanny Borrozzino. <a href="#topo">Voltar ao topo</a></p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('BtnModoTela');
+        const root = document.documentElement;
+
+        btn.addEventListener('click', () => {
+            if (root.classList.contains('dark')) {
+                root.classList.remove('dark');
+                btn.src = "img/lightMode.png";
+            } else {
+                root.classList.add('dark');
+                btn.src = "img/darkMode.png";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
